@@ -6,6 +6,7 @@ import (
 
 func Multiply(num int) int {
 	return num * 2
+
 }
 
 func main() {
