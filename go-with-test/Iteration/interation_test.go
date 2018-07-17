@@ -14,15 +14,26 @@ func TestIteration(t *testing.T) {
 	}
 
 	t.Run("Test first iteration", func(t *testing.T) {
-		repeated := Repeat("a")
+		repeated := Repeat5("a")
 		expected := "aaaaa"
+		assertCorrectMessage(t, repeated, expected)
+	})
+
+	t.Run("Test second iteration", func(t *testing.T) {
+		repeated := Repeat10("x")
+		expected := "xxxxxxxxxx"
 		assertCorrectMessage(t, repeated, expected)
 	})
 }
 
 // Benchmark func for testing
-func BenchmarkRepeat(b *testing.B) {
+func BenchmarkRepeat5times(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Repeat("a")
+		Repeat5("a")
+	}
+}
+func BenchmarkRepeat10times(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Repeat10("x")
 	}
 }
